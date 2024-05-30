@@ -1,6 +1,13 @@
-# treeData.js
+# TreeDataNext.js
 
-> A JavaScript plugin to easy create an tree data structure.
+TreeDataNext is a modern JavaScript library for creating and customizing tree data structures in web applications. It is an evolution of the original [treeData.js](https://github.com/raphamorim/treeData.js) library, with added flexibility and customization options.
+
+## Features
+
+- Utilizes ES6 features for a more modern and efficient approach to building tree structures.
+- Allows real-time customization of tree nodes during the build process.
+- Returns a Promise containing the final node once the build process is complete.
+- Offers an intuitive API interface, making it easier for developers to create and manipulate tree structures.
 
 ## What's a Tree data structure?
 
@@ -8,39 +15,96 @@ In computer science, a tree is a widely used abstract data type (ADT) or data st
 
 A tree data structure can be defined recursively (locally) as a collection of nodes (starting at a root node), where each node is a data structure consisting of a value, together with a list of references to nodes (the "children"), with the constraints that no reference is duplicated, and none points to the root.
 
-## Guide to use
+## How to use
 
 It's super simple to use this javascript plugin.
 
-**1.** First you have css in the Head
+**1.** Include the CSS file in your document
 
 ```html
-<link rel="stylesheet" href="treeData.min.css" />
+<link rel="stylesheet" href="TreeDataNext.min.css" />
 ```
 
-**2.** Start treeData.js in body end
+**2.** Include the JavaScript file in your document
 
 ```html
-<script src="treeData.min.js"></script>
-<script type="text/javascript"> 
-
-var tree = {
-     father : {value : "Tree Data Structure", parent : ""},
-     a : {value : "A", parent : "father"},
-     b : {value : "B", parent : "a"},
-     c : {value : "C", parent : "a"},
-     d : {value : "D", parent : "c"},
-     e : {value : "E", parent : "b"},
-     f : {value : "F", parent : "c"},
-     g : {value : "G", parent : "f"}
-};
-
-TreeData(tree, "#element");
-
-</script>
-</body>
+<script src="TreeDataNext.js"></script>
 ```
+
+**3.** Create your tree structure
+
+Unlike the original [treeData.js](https://github.com/raphamorim/treeData.js) library, TreeDataNext.js uses an Array of Objects structure to define nodes.
+Each `object` in the array represents a `NodeItem`
+
+```javascript
+let tree = [
+     { id: "father", value: "Root Node", parent: null },
+     { id: "a", value: "CTO", parent: "father" },
+     { id: "b", value: "Manager", parent: "a" },
+     { id: "c", value: "Director", parent: "b" },
+     { id: "d", value: "Distributor", parent: "c" },
+     { id: "e", value: "Client", parent: "b" },
+     // More Tree Data
+];
+```
+
+**4.** Build your tree
+
+```javascript
+new TreeDataNext(tree)
+    .build(function(li, depth, nodeItem) {
+          // Custom modifications to tree elements
+    })
+    .then(function(finalNode) {
+          // Append the constructed elements to your document
+          document.querySelector('#my-container').appendChild(finalNode);
+    });
+```
+
+## Elucidation:
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Accepts</th>
+      <th>Required</th>
+      <th>Description</th>
+      <th>Returns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>new TreeDataNext</td>
+      <td>Array</td>
+      <td>Yes</td>
+      <td>
+          An array of objects, each representing a node in the tree. <br>
+          Each object should have an 'id', 'value', and 'parent' property.
+      </td>
+      <td>
+          TreeDataNext Instance
+      </td>
+    </tr>
+    <tr>
+      <td>build</td>
+      <td>Function</td>
+      <td>No</td>
+      <td>
+          A callback function that is called for each element being built. This function receives three parameters: 
+          <ol>
+               <li><code>li</code>: (the list element which is the actual node)</li> 
+               <li><code>depth</code>: (the depth of the current element being built)</li>
+               <li><code>nodeItem</code>: (the object in the tree structure that was used to create the element)</li>
+          </ol>
+      </td>
+      <td>
+          A Promise
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## About
 
-Created with <3 by [raphamorim](http://github.com/raphamorim)
+Forked from [raphamorim](http://github.com/raphamorim) by [ucscode](http://github.com/ucscode)
