@@ -80,7 +80,7 @@ class TreeDataNext {
         let li = document.createElement('li');
         let anchor = document.createElement('a');
         anchor.setAttribute('href', 'javascript:void(0)');
-        anchor.innerHTML = nodeItem.value;
+        anchor.innerHTML = nodeItem.value || '';
         li.appendChild(anchor);
         return li;
     }
