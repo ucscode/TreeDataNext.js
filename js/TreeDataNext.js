@@ -37,7 +37,7 @@ class TreeDataNext {
             if(!parent) throw new Error("No root element found!");
             
             let nodeList = this.#createNode(parent, callback);
-            let container = this.#createContainer(nodeList);
+            let container = this.#createContainer('tree tree-base', nodeList);
             let wrapper = this.#createWrapper(container);
 
             resolve(wrapper);
@@ -57,7 +57,7 @@ class TreeDataNext {
         let children = this.#getChildren(nodeItem);
 
         if(children.length) {
-            let ul = document.createElement('ul');
+            let ul = this.#createContainer();
             li.appendChild(ul);
 
             for(let child of children) {
@@ -104,13 +104,14 @@ class TreeDataNext {
     /**
      * Create a base UL container and append the list Element
      * 
+     * @param {string} className
      * @param {HTMLLIElement} nodeList 
      * @returns {HTMLUListElement}
      */
-    #createContainer(nodeList) {
+    #createContainer(className = '', nodeList) {
         let ul = document.createElement('ul');
-        ul.setAttribute('class', 'tree tree-nodes');
-        ul.appendChild(nodeList);
+        ul.setAttribute('class', `tree-family ${className}`);
+        if(nodeList) ul.appendChild(nodeList);
         return ul;
     }
 
