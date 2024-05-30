@@ -1,6 +1,9 @@
 /**
- * Forked by ucscode
- * May 30, 2024 - 04:37 GMT+1
+ * TreeDataNext.js
+ * 
+ * TreeDataNext is a modern JavaScript library for creating and customizing tree data structures in web applications. 
+ * 
+ * @link https://github.com/ucscode/TreeDataNext.js
  * 
  * @typedef {Object} NodeItem
  * @property {string|number} id     - The node id
