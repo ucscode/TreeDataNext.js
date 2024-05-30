@@ -78,9 +78,13 @@ class TreeDataNext {
      */
     #createDOMElement(nodeItem) {
         let li = document.createElement('li');
+        li.setAttribute('class', 'tree-item');
+
         let anchor = document.createElement('a');
+        anchor.setAttribute('class', 'tree-anchor');
         anchor.setAttribute('href', 'javascript:void(0)');
-        anchor.innerHTML = nodeItem.value || '';
+        anchor.innerHTML = String(nodeItem.value);
+        
         li.appendChild(anchor);
         return li;
     }
@@ -105,7 +109,7 @@ class TreeDataNext {
      */
     #createContainer(nodeList) {
         let ul = document.createElement('ul');
-        ul.setAttribute('class', 'tree tree-container');
+        ul.setAttribute('class', 'tree tree-nodes');
         ul.appendChild(nodeList);
         return ul;
     }

@@ -52,7 +52,7 @@ let tree = [
 
 ```javascript
 new TreeDataNext(tree)
-    .build(function(li, depth, nodeItem) {
+    .build(function(element, depth, nodeItem) {
           // Custom modifications to tree elements
     })
     .then(function(finalNode) {
@@ -97,7 +97,7 @@ new TreeDataNext(tree)
       <td>
           A callback function that is called for each element being built. This function receives three parameters: <br>
           <ul>
-               <li><code>li</code>: (the list element which is the actual node)</li> 
+               <li><code>element</code>: (the list element which is the actual node)</li> 
                <li><code>depth</code>: (the depth of the current element being built)</li>
                <li><code>nodeItem</code>: (the object in the tree structure that was used to create the element)</li>
           </ul>
