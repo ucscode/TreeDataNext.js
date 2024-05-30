@@ -1,4 +1,7 @@
 /**
+ * Forked by ucscode
+ * May 30, 2024 - 04:37 GMT+1
+ * 
  * @typedef {Object} NodeItem
  * @property {string|number} id     - The node id
  * @property {string} value         - The node Value

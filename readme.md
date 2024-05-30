@@ -19,13 +19,13 @@ A tree data structure can be defined recursively (locally) as a collection of no
 
 It's super simple to use this javascript plugin.
 
-**1.** Include the CSS file in your document
+**1.** Include the CSS file to your document
 
 ```html
 <link rel="stylesheet" href="TreeDataNext.min.css" />
 ```
 
-**2.** Include the JavaScript file in your document
+**2.** Include the JavaScript file to your document
 
 ```html
 <script src="TreeDataNext.js"></script>
@@ -33,7 +33,7 @@ It's super simple to use this javascript plugin.
 
 **3.** Create your tree structure
 
-Unlike the original [treeData.js](https://github.com/raphamorim/treeData.js) library, TreeDataNext.js uses an Array of Objects structure to define nodes.
+Unlike [treeData.js](https://github.com/raphamorim/treeData.js) library which uses object to define tree structure, TreeDataNext.js uses an array of objects instead.
 Each `object` in the array represents a `NodeItem`
 
 ```javascript
@@ -67,15 +67,17 @@ new TreeDataNext(tree)
   <thead>
     <tr>
       <th>Method</th>
-      <th>Accepts</th>
-      <th>Required</th>
+      <th>Param Type</th>
+      <th>Param Required</th>
       <th>Description</th>
       <th>Returns</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>new TreeDataNext</td>
+      <td>
+          <code>new TreeDataNext()</code>
+     </td>
       <td>Array</td>
       <td>Yes</td>
       <td>
@@ -87,16 +89,18 @@ new TreeDataNext(tree)
       </td>
     </tr>
     <tr>
-      <td>build</td>
+      <td>
+          <code>.build()</code>
+     </td>
       <td>Function</td>
       <td>No</td>
       <td>
-          A callback function that is called for each element being built. This function receives three parameters: 
-          <ol>
+          A callback function that is called for each element being built. This function receives three parameters: <br>
+          <ul>
                <li><code>li</code>: (the list element which is the actual node)</li> 
                <li><code>depth</code>: (the depth of the current element being built)</li>
                <li><code>nodeItem</code>: (the object in the tree structure that was used to create the element)</li>
-          </ol>
+          </ul>
       </td>
       <td>
           A Promise
