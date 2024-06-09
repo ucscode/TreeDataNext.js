@@ -103,7 +103,7 @@ new TreeDataNext(tree)
           </ul>
       </td>
       <td>
-          A Promise
+          Promise
       </td>
     </tr>
   </tbody>
